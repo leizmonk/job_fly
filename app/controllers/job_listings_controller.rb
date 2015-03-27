@@ -10,7 +10,7 @@ class JobListingsController < ApplicationController
 
 
   def create
-    @job_listing = JobListing.find(params[:id])    
+    @job_listing = JobListing.find(params[:id])
     @note = Note.new(note_params)
 
     if @note.save
@@ -21,11 +21,11 @@ class JobListingsController < ApplicationController
   end
 
   def edit
-    
+    @note = Note.find(params[:id])    
   end
 
   def update
-    
+    @note = Note.find(params[:id])
   end
 
   def destroy
@@ -34,11 +34,11 @@ class JobListingsController < ApplicationController
 
   def show
     @job_listing = JobListing.find(params[:id])
-    @notes = Note.find(params[:id])
+    @note = @job_listing.notes
   end
 
   def note_params
     params.require(:note).permit(:text_field)
-    params.require(:note).permit(:status)  
+    params.require(:note).permit(:status)
   end
 end

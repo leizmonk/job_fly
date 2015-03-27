@@ -19,14 +19,14 @@
       <div class="well sidebar-nav">
         <h3>Notes</h3>
         <ul class="notes-list">
-          <li><%= link_to @notes.text_field %></li>
+			<% @note.each do |note| %>
+				<%= note.title %><br />
+				<%= note.text_field %><br />
+				<%= note.created_at %><br />
+				<br />
+			<% end %>
         </ul>
-
-        <h4>Add a Note</h4>
-        <%= form_for @notes do |form| %>
-        	<%= form.text_area(:text_field, placeholder: 'Enter your note here...') %><br/>
-			<%= form.submit('Save Note') %>
-        <% end %>
+        
       </div><!--/.well -->
     </div><!--/span-->
   </div><!--/row-->

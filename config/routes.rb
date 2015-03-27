@@ -2,8 +2,9 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "welcome#index"
 
-  resources :notes
-  resources :job_listings
+  resources :job_listings do
+      resources :notes
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
