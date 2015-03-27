@@ -5,10 +5,19 @@ class JobListingsController < ApplicationController
 
   def new
     @job_listing = JobListing.new
+    @note = Note.new
   end
 
+
   def create
-    
+    @job_listing = JobListing.find(params[:id])    
+    @note = Note.new(note_params)
+
+    if @note.save
+      redirect_to '/'
+    else
+      render :new
+    end
   end
 
   def edit
@@ -26,5 +35,10 @@ class JobListingsController < ApplicationController
   def show
     @job_listing = JobListing.find(params[:id])
     @notes = Note.find(params[:id])
+  end
+
+  def note_params
+    params.require(:note).permit(:text_field)
+    params.require(:note).permit(:status)  
   end
 end
