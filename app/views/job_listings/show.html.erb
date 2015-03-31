@@ -23,7 +23,7 @@
 				<%= note.title %><br />
 				<%= note.text_field %><br />
 				<%= note.created_at %><br />
-				<%= link_to 'Edit this note', edit_job_listing_note_path(note.job_listing_id, note.id) %></a> - <a href="#">Delete note</a>
+				<%= link_to 'Edit this note', edit_job_listing_note_path(note.job_listing_id, note.id) %></a> - <%= link_to "Delete", job_listing_note_path(note.job_listing_id, note.id), method: :delete, data: { confirm: "You sure?" } %>
 				<br />
 				<br />
 			<% end %>

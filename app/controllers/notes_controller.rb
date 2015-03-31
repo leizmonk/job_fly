@@ -14,7 +14,7 @@ class NotesController < ApplicationController
     @note.job_listing_id = params[:job_listing_id]
 
     if @note.save
-      redirect_to job_listing_notes_path(@note)
+      redirect_to job_listing_path(@note.job_listing_id)
     else
       render :new
     end    
@@ -35,7 +35,13 @@ class NotesController < ApplicationController
   end
 
   def destroy
-    
+    @note = Note.find(params[:id])
+
+    if @note.destroy
+      redirect_to job_listing_path(@note.job_listing_id)
+    else
+      render :new
+    end       
   end
 
   def show
@@ -45,6 +51,6 @@ class NotesController < ApplicationController
   private
 
   def note_params
-    params.require(:note).permit(:body)
+    params.require(:note).permit(:title, :text_field, :status)
   end
 end
