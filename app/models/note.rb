@@ -1,3 +1,3 @@
 class Note < ActiveRecord::Base
-  belongs_to :job_listings
+  belongs_to :job_listing
 end

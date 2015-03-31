@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150327191650) do
+ActiveRecord::Schema.define(version: 20150327203704) do
 
   create_table "job_listings", force: :cascade do |t|
     t.datetime "date_posted"
@@ -27,8 +27,8 @@ ActiveRecord::Schema.define(version: 20150327191650) do
     t.string   "listing_url"
     t.string   "location"
     t.string   "responsibilities"
-    t.string   "note_id"
-    t.string   "user_id"
+    t.integer  "note_id"
+    t.integer  "user_id"
   end
 
   create_table "notes", force: :cascade do |t|
@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 20150327191650) do
     t.datetime "updated_at",     null: false
     t.string   "status"
     t.string   "title"
-    t.string   "job_listing_id"
+    t.integer  "job_listing_id"
   end
 
   create_table "users", force: :cascade do |t|

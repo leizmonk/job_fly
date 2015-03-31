@@ -1,4 +1,4 @@
 class JobListing < ActiveRecord::Base
-  belongs_to :users
+  belongs_to :user
   has_many :notes
 end

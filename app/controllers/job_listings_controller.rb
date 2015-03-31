@@ -1,31 +1,38 @@
 class JobListingsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
-    @job_listing = JobListing.all
+    @job_listing = current_user.job_listings
   end
 
   def new
     @job_listing = JobListing.new
-    @note = Note.new
   end
 
-
   def create
-    @job_listing = JobListing.find(params[:id])
-    @note = Note.new(note_params)
+    @job_listing = current_user.job_listings.build(listing_params)
 
-    if @note.save
-      redirect_to '/'
+    if @job_listing.save
+      redirect_to job_listing_path(@job_listing)
     else
       render :new
-    end
+    end  
   end
 
   def edit
-    @note = Note.find(params[:id])    
+    @job_listing = current_user.job_listings.find(params[:id])    
+    @note = Note.find(params[:id])
   end
 
   def update
     @note = Note.find(params[:id])
+    @job_listing = current_user.job_listings.find(params[:id])
+
+    if @job_listing.update_attributes(listing_params)
+      redirect_to job_listing_path(@job_listing)
+    else
+      render :edit
+    end    
   end
 
   def destroy
@@ -34,11 +41,13 @@ class JobListingsController < ApplicationController
 
   def show
     @job_listing = JobListing.find(params[:id])
-    @note = @job_listing.notes
+    @notes = @job_listing.notes
+    @note = Note.new
   end
 
-  def note_params
-    params.require(:note).permit(:text_field)
-    params.require(:note).permit(:status)
+  private
+
+  def listing_params
+    params.require(:job_listing).permit(:body)
   end
 end
