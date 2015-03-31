@@ -23,14 +23,14 @@
 				<%= note.title %><br />
 				<%= note.text_field %><br />
 				<%= note.created_at %><br />
-				<a href="#">Edit this note</a> - <a href="#">Delete note</a>
+				<%= link_to 'Edit this note', edit_job_listing_note_path(note.job_listing_id, note.id) %></a> - <a href="#">Delete note</a>
 				<br />
 				<br />
 			<% end %>
         </ul>
 
 		<h4>Add a Note</h4>
-		<%= form_for @note, url: new_job_listing_note_path(@job_listing) do |form| %>
+		<%= form_for @note, :url => job_listing_notes_path(@job_listing) do |form| %>
 			<%= form.text_field(:title, placeholder: 'What to call this note?') %><br />
 			<%= form.text_area(:text_field, placeholder: 'Enter note here ...') %><br />	
 			<%= form.submit 'Save Note' %><br />		

@@ -21,11 +21,17 @@ class NotesController < ApplicationController
   end
 
   def edit
-    
+    @note = Note.find(params[:id])    
   end
 
   def update
-    
+    @note = Note.find(params[:id])
+
+    if @note.update_attributes(note_params)
+      redirect_to job_listing_path(@note.job_listing_id)
+    else
+      render :edit
+    end       
   end
 
   def destroy

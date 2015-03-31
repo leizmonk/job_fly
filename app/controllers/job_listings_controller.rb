@@ -40,7 +40,7 @@ class JobListingsController < ApplicationController
   end
 
   def show
-    @job_listing = JobListing.find(params[:id])
+    @job_listing = current_user.job_listings.find(params[:id])
     @notes = @job_listing.notes
     @note = Note.new
   end
