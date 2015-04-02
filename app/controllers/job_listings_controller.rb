@@ -1,3 +1,7 @@
+require 'indeed-ruby'
+
+client = Indeed::Client.new "6479557493286843"
+
 class JobListingsController < ApplicationController
   before_action :authenticate_user!
 
