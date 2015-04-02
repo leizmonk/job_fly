@@ -33,6 +33,7 @@
 		<%= form_for @note, :url => job_listing_notes_path(@job_listing) do |form| %>
 			<%= form.text_field(:title, placeholder: 'What to call this note?') %><br />
 			<%= form.text_area(:text_field, placeholder: 'Enter note here ...') %><br />	
+			<%= form.text_field(:status, placeholder: 'Set status ...') %><br />
 			<%= form.submit 'Save Note' %><br />		
 		<% end %>
       </div><!--/.well -->

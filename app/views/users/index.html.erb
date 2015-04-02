@@ -1,1 +1,6 @@
-<h1>Boom Headshot</h1>
+<%= @user.each do |user| %>
+	<%= user.username %> - <%= user.email %><br />
+	<%= user.first_name %> <%= user.last_name %><br />
+	<%= user.current_sign_in_at %><br />
+	<%= user.last_sign_in_at %><br />
+<% end %>

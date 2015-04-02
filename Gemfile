@@ -3,10 +3,8 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
-# Use sqlit3 as the development database for Active Record
-gem 'sqlite3', group: :development
-# Use pg as the production database for Active Record
-gem 'pg', group: :production
+# Use PostgreSQL database for Active Record
+gem 'pg'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -19,6 +17,9 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'devise'
 # Use twitter boostrap
 gem 'twitter-bootstrap-rails'
+
+gem 'table_cloth'
+gem 'simple_form', '~> 3.1.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

@@ -2,16 +2,13 @@
 
 <ul class="job-listing-info">
 <% @job_listing.each do |listing| %>
-	<li><%= listing.position_name %></li>
-	<li><%= listing.company_name %> - <%= listing.location %></li>
-	<li><%= listing.description %></li>
-	<li><%= listing.responsibilities %></li>
-	<li><%= listing.qualifications %></li>
-	<li><%= listing.application_requirements %></li>
-	<li><%= listing.status %></li>
-	<li><%= listing.listing_url %></li>
-	<li><%= listing.date_posted %></li>
-	<li><%= listing.date_closing %></li>
+	<h4><%= listing.position_name %></h4>
+	<h5><%= listing.company_name %> - <%= listing.location %></h5>
+	<li>Date Posted: <%= listing.date_posted %></li>
+	<li>Date Closing: <%= listing.date_closing %></li>
+	<br />
+	<!-- TODO Fix delete functionality -->
+	<%= link_to 'View Listing', job_listing_path(listing.id) %> - <%= link_to "Delete", job_listing_path(listing.id), method: :delete, data: { confirm: "You sure?" } %>
 <% end %>
 </ul>
 
