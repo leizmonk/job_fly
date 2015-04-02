@@ -1,8 +1,6 @@
-require 'indeed-ruby'
-
-client = Indeed::Client.new "6479557493286843"
-
 class JobListingsController < ApplicationController
+  @indeed_client = Indeed::Client.new "6479557493286843"
+
   before_action :authenticate_user!
 
   def index
@@ -40,7 +38,9 @@ class JobListingsController < ApplicationController
   end
 
   def destroy
-    
+    flash.now[:notice] = "Delete operation failed" unless JobListing.destroy(params[:id])
+    @job_listing = current_user.job_listings
+    render 'job_listings/index'
   end
 
   def show
@@ -52,6 +52,6 @@ class JobListingsController < ApplicationController
   private
 
   def listing_params
-    params.require(:job_listing).permit(:body)
+    params.require(:job_listing).permit(:listing_url)
   end
 end

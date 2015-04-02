@@ -1,0 +1,6 @@
+<h1>Save a New Job</h1>
+
+<%= simple_form_for @job_listing, html: { class: 'form-horizontal' } do |form| %>
+	<%= form.input :listing_url, label: 'Enter Job URL' %>
+	<%= form.submit 'Save this Job' %>
+<% end %>
