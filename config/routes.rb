@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: "welcome#index"
+  root to: "job_listings#index"
 
   resources :job_listings do
       resources :notes
