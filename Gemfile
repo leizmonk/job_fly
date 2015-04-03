@@ -17,7 +17,6 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'devise'
 # Use twitter boostrap
 gem 'twitter-bootstrap-rails'
-
 gem 'table_cloth'
 gem 'simple_form', '~> 3.1.0'
 # Use Indeed's gem for API
@@ -51,6 +50,10 @@ group :development, :test do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+
+  # For ease of viewing errors
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 gem 'rails_12factor', group: :production

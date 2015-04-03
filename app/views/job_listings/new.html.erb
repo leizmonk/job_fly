@@ -1,6 +1,24 @@
 <h1>Save a New Job</h1>
 
-<%= simple_form_for @job_listing, html: { class: 'form-horizontal' } do |form| %>
-	<%= form.input :listing_url, label: 'Enter Job URL' %>
-	<%= form.submit 'Save this Job' %>
-<% end %>
+<div class="row">
+	<div class="col-md-4">
+		<div class="search-form">
+			<%= form_tag('/job_listings/new', method: 'get') do %>
+				<%= label_tag(:q, 'Search for:') %><br />
+				<%= text_field_tag :q %><br />
+				<%= label_tag(:l, 'Specify location:') %><br />
+				<%= text_field_tag :l %><br />
+				<%= submit_tag 'Search' %>
+			<% end %>
+		</div>	
+
+		<span id="indeed_at"><a href="http://www.indeed.com/">jobs</a> by <a href="http://www.indeed.com/" title="Job Search"><img src="http://www.indeed.com/p/jobsearch.gif" style="border: 0; vertical-align: middle;" alt="Indeed job search"></a></span>
+	</div>
+	<div class="col-md-8">
+		<%= @search_results.each do |result| %>
+			<%= result.location %>
+			<%=  %>
+			<%=  %>
+		<% end %>
+	</div>
+</div>
