@@ -8,26 +8,34 @@ class JobListingsController < ApplicationController
   def new
     # Instantiate JobListing object and Indeed Client
     @job_listing = JobListing.new
-    @indeed_client = Indeed::Client.new "6479557493286843"
+    indeed_client = Indeed::Client.new "6479557493286843"
 
     # Assign instance variables to required search params for Indeed Search API
     # Some values derived from user input in form
-    @search_query = params[:q]
-    @search_location = params[:l]
-    @user_ip = request.remote_ip
-    @user_agent = request.headers['User-Agent']
+    search_query = params[:q]
+    search_location = params[:l]
+    user_ip = request.remote_ip
+    user_agent = request.headers['User-Agent']
 
     # Create a hash of search params to pass to Indeed Search API
-    @search_params = {
-      :q => @search_query,
-      :l => @search_location,
-      :userip => @user_ip,
-      :useragent => @user_agent,
+    search_params = {
+      :q => search_query,
+      :l => search_location,
+      :userip => user_ip,
+      :useragent => user_agent,
       :format => 'json',
+      :raw => true,
     }
-
-    @search_results = @indeed_client.search(@search_params)
-    data = JSON.parse(@search_results.body)
+    @search_results = indeed_client.search(search_params)
+    
+    # Parse JSON returned by Indeed Search API - get data desired for rendering to view
+    @data = JSON.parse(@search_results.body)
+    @job_search_array = Array.new
+    
+    # @data['results'].each do |result|
+    #   @job_source = result['source']
+    #   @job_location = result['formattedLocationFull']
+    # end
   end
 
   def create

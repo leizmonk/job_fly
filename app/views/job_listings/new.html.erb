@@ -1,7 +1,6 @@
-<h1>Save a New Job</h1>
-
 <div class="row">
 	<div class="col-md-4">
+		<h3 class="section-header">Search a New Job to Save</h3>
 		<div class="search-form">
 			<%= form_tag('/job_listings/new', method: 'get') do %>
 				<%= label_tag(:q, 'Search for:') %><br />
@@ -14,11 +13,12 @@
 
 		<span id="indeed_at"><a href="http://www.indeed.com/">jobs</a> by <a href="http://www.indeed.com/" title="Job Search"><img src="http://www.indeed.com/p/jobsearch.gif" style="border: 0; vertical-align: middle;" alt="Indeed job search"></a></span>
 	</div>
+
 	<div class="col-md-8">
-		<%= @search_results.each do |result| %>
-			<%= result.location %>
-			<%=  %>
-			<%=  %>
-		<% end %>
+		<h3>Search Results</h3>	
+		    <% @data['results'].each do |result| %>
+				<li><%= result['source'] %></li>
+			 	<li><%= result['formattedLocationFull'] %></li>
+		    <% end %>
 	</div>
 </div>
