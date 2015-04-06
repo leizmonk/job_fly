@@ -12,30 +12,37 @@ class JobListingsController < ApplicationController
 
     # Assign instance variables to required search params for Indeed Search API
     # Some values derived from user input in form
-    search_query = params[:q]
+    job_type = params[:jt]
     search_location = params[:l]
+    search_query = params[:q]
+    search_radius = params[:radius]
+    search_time = params[:fromage]
     user_ip = request.remote_ip
-    user_agent = request.headers['User-Agent']
+    user_agent = request.headers['User-Agent']    
 
     # Create a hash of search params to pass to Indeed Search API
     search_params = {
-      :q => search_query,
+      :fromage => search_time,
+      :format => 'json',
+      :highlight => 0,
+      :jt => job_type,
       :l => search_location,
+      :limit => 500,
+      :q => search_query,
+      :radius => search_radius,
+      :raw => true,
       :userip => user_ip,
       :useragent => user_agent,
-      :format => 'json',
-      :raw => true,
     }
     @search_results = indeed_client.search(search_params)
     
     # Parse JSON returned by Indeed Search API - get data desired for rendering to view
     @data = JSON.parse(@search_results.body)
-    @job_search_array = Array.new
     
-    # @data['results'].each do |result|
-    #   @job_source = result['source']
-    #   @job_location = result['formattedLocationFull']
-    # end
+    # For each search result, grab the job key attribute to pass back to Indeed Get Job Details API
+    @data['results'].each do |result|
+      @job_key = result['jobkey']
+    end
   end
 
   def create

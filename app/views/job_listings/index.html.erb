@@ -8,7 +8,6 @@
 	<li>Date Closing: <%= listing.date_closing %></li>
 	<br />
 	<!-- TODO Fix delete functionality -->
-	<%= link_to 'View Listing', job_listing_path(listing.id) %> - <%= link_to "Delete", job_listing_path(listing.id), method: :delete, data: { confirm: "You sure?" } %>
+	<%= link_to 'View Listing', job_listing_path(listing.id) %> - <%= link_to "Delete", job_listing_path(listing.id), method: :delete, data: { confirm: "Are you sure you want to delete this entry?" } %>
 <% end %>
 </ul>
-

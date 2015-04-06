@@ -1,13 +1,20 @@
 <div class="row">
 	<div class="col-md-4">
 		<h3 class="section-header">Search a New Job to Save</h3>
+		<!-- This form takes user input to pass to Indeed Search API in the Job Listings controller -->
 		<div class="search-form">
 			<%= form_tag('/job_listings/new', method: 'get') do %>
 				<%= label_tag(:q, 'Search for:') %><br />
 				<%= text_field_tag :q %><br />
 				<%= label_tag(:l, 'Specify location:') %><br />
 				<%= text_field_tag :l %><br />
-				<%= submit_tag 'Search' %>
+				<%= label_tag(:radius, 'Specify search radius around location:') %><br />
+				<%= text_field_tag :radius %><br />
+				<%= label_tag(:jt, 'Specify job type (i.e. fulltime, parttime, contract, internship):') %><br />
+				<%= text_field_tag :jt %><br />
+				<%= label_tag(:fromage, 'Specify how far back in time to search:') %><br />
+				<%= text_field_tag :fromage %><br />
+				<%= submit_tag 'Search', class: 'btn btn-primary' %>
 			<% end %>
 		</div>	
 
@@ -16,9 +23,15 @@
 
 	<div class="col-md-8">
 		<h3>Search Results</h3>	
+			<!-- This loop iterates through the search results and renders relevant info to the view -->
 		    <% @data['results'].each do |result| %>
-				<li><%= result['source'] %></li>
-			 	<li><%= result['formattedLocationFull'] %></li>
+				<ul class="job-search-results">
+					<h4><%= result['jobtitle'] %> | <%= result['company'] %></h4>
+				 	<p><%= result['formattedLocationFull'] %> - <%= result['country'] %></p>
+					<p><%= link_to 'Open this listing in a new tab', result['url'], :target => '_blank' %></p>
+				 	<strong>Brief Description</strong>
+				 	<p><%= result['snippet'] %></p>
+			 	</ul>
 		    <% end %>
 	</div>
 </div>

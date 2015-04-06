@@ -8,3 +8,7 @@
 
 /* Typography Settings */
 .job-listing-header, .section-header { color: blue; }
+
+/* Search Results Page */
+ul.job-search-results { padding: 8px 0 0 0; }
+.btn.btn-primary { margin-top: 5px; }
