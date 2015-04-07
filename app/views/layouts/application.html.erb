@@ -52,9 +52,9 @@
           <ul class="nav navbar-nav">
             <li><%= link_to "Search Jobs", "/job_listings/new" %></li>
             <li><%= link_to "Saved Jobs", job_listings_path %></li>
-            <li><%= link_to "Sign Up", "/path1"  %></li>
-            <li><%= link_to "Sign In", "/path2"  %></li>
-            <li><%= link_to "Sign Out", "/path3"  %></li>
+            <li><%= link_to "Sign Up", new_user_registration_path %></li>
+            <li><%= link_to "Sign In", new_user_session_path %></li>
+            <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></li>
           </ul>
         </div>
       </div>

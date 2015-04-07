@@ -5,10 +5,18 @@
 		</div>
 		<!-- This seciton will contain app name, logo and tagline -->
 		<div class="col-md-4">
+			<center>
 			<%= image_tag('jobfly-logo-txt.png') %>
 			<p>
-				JobFly will help you organize your
+				JobFly is here to help you organize your next job search. Are you using paper or spreadsheets to keep track of all the activity on your job applications? JobFly aims to provide you with a GUI that will help you keep notes on job applications without you having to copy and paste information into a spreadsheet. You simply search for jobs, save them, then take whatever notes you'd like on your saved jobs.
 			</p>
+			<div class="col-md-6">
+				<%= link_to 'Sign Up', new_user_registration_path, class: 'btn btn-primary' %>
+			</div>
+			<div class="col-md-6">
+				<%= link_to 'Sign In', new_user_session_path, class: 'btn btn-warning' %>
+			</div>
+			</center>
 		</div>
 		<!-- This seciton will link to sign up/sign in -->
 		<div class="col-md-4">
