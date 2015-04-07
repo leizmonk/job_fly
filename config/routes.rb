@@ -3,7 +3,12 @@ Rails.application.routes.draw do
   root to: "job_listings#index"
 
   resources :job_listings do
-      resources :notes
+    # Adds a custom URL for the action to save a Job Listing
+    collection do
+      get 'add_to_saved'
+    end
+
+    resources :notes
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

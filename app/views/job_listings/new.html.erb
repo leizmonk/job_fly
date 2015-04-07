@@ -28,8 +28,8 @@
 				<ul class="job-search-results">
 					<h4><%= result['jobtitle'] %> | <%= result['company'] %></h4>
 				 	<p><%= result['formattedLocationFull'] %> - <%= result['country'] %></p>
-					<p><%= link_to 'Open this listing in a new tab', result['url'], :target => '_blank' %></p>
-				 	<strong>Brief Description</strong>
+					<p><%= link_to 'Open full listing in a new tab', result['url'], :target => '_blank' %> - <%= link_to 'Save this listing', add_to_saved_job_listings_path(jobkey: result['jobkey']) %></p>
+				 	<em>Brief Description</em>
 				 	<p><%= result['snippet'] %></p>
 			 	</ul>
 		    <% end %>

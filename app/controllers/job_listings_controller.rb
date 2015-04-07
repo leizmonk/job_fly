@@ -3,6 +3,10 @@ class JobListingsController < ApplicationController
 
   def index
     @job_listing = current_user.job_listings
+
+    # if @job_listing != nil
+    #   @job_listings = current_user.job_listings.page(params[:page]).per(10)
+    # end
   end
 
   def new
@@ -27,10 +31,11 @@ class JobListingsController < ApplicationController
       :highlight => 0,
       :jt => job_type,
       :l => search_location,
-      :limit => 500,
+      :limit => 25,
       :q => search_query,
       :radius => search_radius,
       :raw => true,
+      :start => 1,
       :userip => user_ip,
       :useragent => user_agent,
     }
@@ -38,26 +43,51 @@ class JobListingsController < ApplicationController
     
     # Parse JSON returned by Indeed Search API - get data desired for rendering to view
     @data = JSON.parse(@search_results.body)
-    
-    # For each search result, grab the job key attribute to pass back to Indeed Get Job Details API
-    @data['results'].each do |result|
-      @job_key = result['jobkey']
-    end
   end
 
   def create
-    @job_listing = current_user.job_listings.build(listing_params)
+    # @job_listing = JobListing.new(listing_params)
 
-    if @job_listing.save
-      redirect_to job_listing_path(@job_listing)
-    else
-      render :new
-    end  
+    # if @job_listing.save
+    #   redirect_to job_listing_path(@job_listing)
+    # else
+    #   flash.now[:notice] = "Sorry, an error occurred"      
+    # end
   end
 
   def edit
     @job_listing = current_user.job_listings.find(params[:id])
     @note = Note.find(params[:id])
+  end
+
+  def add_to_saved
+    # Get jobkey from the param in the URL
+    jobkey = params['jobkey']
+    indeed_client = Indeed::Client.new "6479557493286843"
+
+    # Pass params to Indeed Get Job Details API
+    job_params = {
+      :format => 'json',
+      :jobkeys => [jobkey],
+    }
+    # .jobs already generates a parsed JSON object, need to reference the result index
+    @job_details = indeed_client.jobs(job_params)['results'][0]
+    
+    @job_listing = JobListing.new(
+      position_name: @job_details['jobtitle'], 
+      company_name: @job_details['company'], 
+      location: @job_details['formattedLocation'], 
+      description: @job_details['snippet'], 
+      listing_url: @job_details['url'],
+      date_posted: @job_details['date'],
+      user_id: current_user.id,
+      )
+
+    if @job_listing.save
+      redirect_to job_listing_path(@job_listing)
+    else
+      flash.now[:notice] = "Sorry, an error occurred"      
+    end    
   end
 
   def update
@@ -68,7 +98,7 @@ class JobListingsController < ApplicationController
       redirect_to job_listing_path(@job_listing)
     else
       render :edit
-    end    
+    end
   end
 
   def destroy
@@ -79,7 +109,7 @@ class JobListingsController < ApplicationController
   end
 
   def show
-    @job_listing = current_user.job_listings.find(params[:id])
+    @job_listing = JobListing.find(params[:id])
     @notes = @job_listing.notes
     @note = Note.new
   end
@@ -87,6 +117,6 @@ class JobListingsController < ApplicationController
   private
 
   def listing_params
-    params.require(:job_listing).permit(:listing_url)
+    params.require(:job_listing).permit(:jobkey)
   end
 end

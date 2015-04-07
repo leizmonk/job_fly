@@ -6,9 +6,18 @@
   =require twitter-bootstrap-static/fontawesome
   */
 
-/* Typography Settings */
-.job-listing-header, .section-header { color: blue; }
+/* Header Settings */
+nav.navbar-nav { float: right; }
+
+/*Job Listing Page Settings*/
+ul.notes-list { padding: 3px 0 0 0; }
 
 /* Search Results Page */
 ul.job-search-results { padding: 8px 0 0 0; }
 .btn.btn-primary { margin-top: 5px; }
+
+/* Typography Settings */
+.job-listing-header, .section-header { color: blue; }
+
+
+

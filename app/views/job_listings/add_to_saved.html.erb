@@ -16,11 +16,10 @@
         <h3>Notes</h3>
         <ul class="notes-list">
 			<% @notes.each do |note| %>
-				<strong><%= note.title %></strong><br />
-				Note Text: <%= note.text_field %><br />
+				<%= note.title %><br />
+				<%= note.text_field %><br />
+				<%= note.created_at %><br />
 				Status: <%= note.status %><br />
-				Due Date: <%= note.due_date %><br />
-				<%= note.created_at %><br />				
 				<%= link_to 'Edit this note', edit_job_listing_note_path(note.job_listing_id, note.id) %></a> - <%= link_to 'Delete', job_listing_note_path(note.job_listing_id, note.id), method: :delete, data: { confirm: 'Are you sure you want to delete this note?' } %>
 				<br />
 				<br />
@@ -30,9 +29,7 @@
 		<h4>Add a Note</h4>
 		<%= form_for @note, :url => job_listing_notes_path(@job_listing) do |form| %>
 			<%= form.text_field(:title, placeholder: 'What to call this note?') %><br />
-			<%= form.text_area(:text_field, placeholder: 'Enter note here ...') %><br />
-			<%= label_tag(:due_date, 'Due date') %>
-			<%= form.date_field(:due_date) %><br />
+			<%= form.text_area(:text_field, placeholder: 'Enter note here ...') %><br />	
 			<%= form.text_field(:status, placeholder: 'Set status ...') %><br />
 			<%= form.submit 'Save Note' %><br />		
 		<% end %>
