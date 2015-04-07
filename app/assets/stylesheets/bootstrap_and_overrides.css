@@ -17,6 +17,8 @@ ul.job-search-results { padding: 8px 0 0 0; }
 .btn.btn-primary { margin-top: 5px; }
 
 /* Typography Settings */
+h1, h2, h3, h4, h5, h6 { font-family: 'Lato', 'Arial', sans-serif; }
+p, ul, li { font-family: 'Source Sans Pro', sans-serif; }
 .job-listing-header, .section-header { color: blue; }
 
 
