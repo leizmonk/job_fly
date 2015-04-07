@@ -1,4 +1,4 @@
-<%= button_to 'Search for Job Listings', new_job_listing_path, method: 'get' %>
+<%= button_to 'Search for Job Listings', new_job_listing_path, method: 'get', class: 'btn btn-primary' %>
 
 <% if @job_listing.empty? %>
 	<%= flash.now[:notice] = "You don't have any saved jobs. Why not search for some?" %>

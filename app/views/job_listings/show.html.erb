@@ -1,26 +1,25 @@
-<h3 class="job-listing-header"><%= @job_listing.position_name %></h3>
-<h3 class="job-listing-header"><%= @job_listing.company_name %> - <%= @job_listing.location %></h3>
-
 <div class="container">
   <div class="row">
     <div class="col-lg-8">
+		<h3 class="job-listing-header"><%= @job_listing.position_name %></h3>
+		<h4 class="complementary-header"><%= @job_listing.company_name %> - <%= @job_listing.location %></h4>
 		<ul class="job-listing-info">
-			<li><h5>Description:</h5> <%= @job_listing.description %></li>
-			<li><h5>Listing URL:</h5><%= link_to 'View original posting here', @job_listing.listing_url, :target => '_blank' %></li>
-			<li><h5>Date Posted:</h5><%= @job_listing.date_posted %></li>
+			<li><strong><h4>Description:</h4></strong> <%= @job_listing.description %></li>
+			<li><strong><h4>Listing URL:</h4></strong> <%= link_to 'View original posting here', @job_listing.listing_url, :target => '_blank' %></li>
+			<li><strong><h4>Date Posted:</h4></strong> <%= @job_listing.date_posted %></li>
 		</ul>
       <%= yield %>
     </div>
     <div class="col-lg-4">
       <div class="well sidebar-nav">
-        <h3>Notes</h3>
+        <h3 class="regular-header">Notes</h3>
         <ul class="notes-list">
 			<% @notes.each do |note| %>
-				<strong><%= note.title %></strong><br />
-				Note Text: <%= note.text_field %><br />
-				Status: <%= note.status %><br />
-				Due Date: <%= note.due_date %><br />
-				<%= note.created_at %><br />				
+				<p><strong><%= note.title %></strong><br /></p>
+				<p>Note Text: <%= note.text_field %><br /></p>
+				<p>Status: <%= note.status %><br /></p>
+				<p>Due Date: <%= note.due_date %><br /></p>
+				<p><%= note.created_at %><br /></p>
 				<%= link_to 'Edit this note', edit_job_listing_note_path(note.job_listing_id, note.id) %></a> - <%= link_to 'Delete', job_listing_note_path(note.job_listing_id, note.id), method: :delete, data: { confirm: 'Are you sure you want to delete this note?' } %>
 				<br />
 				<br />
@@ -28,14 +27,16 @@
         </ul>
 
 		<h4>Add a Note</h4>
-		<%= form_for @note, :url => job_listing_notes_path(@job_listing) do |form| %>
-			<%= form.text_field(:title, placeholder: 'What to call this note?') %><br />
-			<%= form.text_area(:text_field, placeholder: 'Enter note here ...') %><br />
-			<%= label_tag(:due_date, 'Due date') %>
-			<%= form.date_field(:due_date) %><br />
-			<%= form.text_field(:status, placeholder: 'Set status ...') %><br />
-			<%= form.submit 'Save Note' %><br />		
-		<% end %>
+		<div class="note-form">
+			<%= form_for @note, :url => job_listing_notes_path(@job_listing) do |form| %>
+				<%= form.text_field(:title, placeholder: 'What to call this note?') %><br />
+				<%= form.text_area(:text_field, placeholder: 'Enter note here ...') %><br />
+				<%= label_tag(:due_date, 'Due date') %><br />
+				<%= form.date_field(:due_date) %><br />
+				<%= form.text_field(:status, placeholder: 'Set status ...') %><br />
+				<%= form.submit 'Save Note' %><br />		
+			<% end %>
+		</div>
       </div><!--/.well -->
     </div><!--/span-->
   </div><!--/row-->

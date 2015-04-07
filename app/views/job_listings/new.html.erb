@@ -22,15 +22,16 @@
 	</div>
 
 	<div class="col-md-8">
-		<h3>Search Results</h3>	
+		<h3 class="complementary-header">Search Results</h3>	
 			<!-- This loop iterates through the search results and renders relevant info to the view -->
 		    <% @data['results'].each do |result| %>
 				<ul class="job-search-results">
-					<h4><%= result['jobtitle'] %> | <%= result['company'] %></h4>
+					<h4><%= result['jobtitle'] %><span> | </span><%= result['company'] %></h4>
+					<hr>
 				 	<p><%= result['formattedLocationFull'] %> - <%= result['country'] %></p>
-					<p><%= link_to 'Open full listing in a new tab', result['url'], :target => '_blank' %> - <%= link_to 'Save this listing', add_to_saved_job_listings_path(jobkey: result['jobkey']) %></p>
 				 	<em>Brief Description</em>
 				 	<p><%= result['snippet'] %></p>
+					<p><%= link_to 'Open full listing in a new tab', result['url'], :target => '_blank' %> - <%= link_to 'Save this listing', add_to_saved_job_listings_path(jobkey: result['jobkey']) %></p>
 			 	</ul>
 		    <% end %>
 	</div>
