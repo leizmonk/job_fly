@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Lato:400,700' rel='stylesheet' type='text/css'>    
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400,700|Lato:400,700' rel='stylesheet' type='text/css'>
     <!-- <script type="text/javascript" src="http://gdc.indeed.com/ads/apiresults.js"></script> -->
     <title><%= content_for?(:title) ? yield(:title) : "Job Fly (beta v. 0.1)" %></title>
     <%= csrf_meta_tags %>
@@ -47,9 +47,11 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="/"><img class="navbar-logo" src="/assets/jobfly-logo-txt.png" /></a>
+        <a class="navbar-brand" href="/"><%= image_tag('jobfly-logo-txt.png', :class => 'navbar-logo') %></a>
         <div class="navbar-collapse collapse navbar-responsive-collapse">
           <ul class="nav navbar-nav">
+            <li><%= link_to "Search Jobs", "/job_listings/new" %></li>
+            <li><%= link_to "Saved Jobs", job_listings_path %></li>
             <li><%= link_to "Sign Up", "/path1"  %></li>
             <li><%= link_to "Sign In", "/path2"  %></li>
             <li><%= link_to "Sign Out", "/path3"  %></li>

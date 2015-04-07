@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: "job_listings#index"
+  root to: "welcome#index"
 
   resources :job_listings do
     # Adds a custom URL for the action to save a Job Listing
