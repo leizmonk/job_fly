@@ -4,6 +4,24 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JobFly - Organize your next job hunt</title>
+    <meta name="description" content="JobFly is here to help you organize your next job search. JobFly aims to provide you with a GUI that will help you keep notes and stay on top of your job applications." />
+
+    <!-- Twitter Card data -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@leizmonk">
+    <meta name="twitter:title" content="JobFly">
+    <meta name="twitter:description" content="JobFly is here to help you organize your next job search. JobFly aims to provide you with a GUI that will help you keep notes and stay on top of your job applications.">
+    <meta name="twitter:creator" content="@leizmonk">
+    <!-- Twitter Summary card images must be at least 120x120px -->
+    <meta name="twitter:image" content="<%= asset_path 'jobfly-logo-txt.png' %>">
+
+    <!-- Open Graph data -->
+    <meta property="og:title" content="JobFly" />
+    <meta property="og:url" content="https://guarded-retreat-9724.herokuapp.com/" />
+    <meta property="og:image" content="<%= asset_path 'jobfly-logo-txt.png' %>" />
+    <meta property="og:description" content="JobFly is here to help you organize your next job search. JobFly aims to provide you with a GUI that will help you keep notes and stay on top of your job applications." /> 
+    <meta property="og:site_name" content="JobFly beta v 0.1" />
     <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400,700|Lato:400,700' rel='stylesheet' type='text/css'>
     <!-- <script type="text/javascript" src="http://gdc.indeed.com/ads/apiresults.js"></script> -->
     <title><%= content_for?(:title) ? yield(:title) : "Job Fly (beta v. 0.1)" %></title>
