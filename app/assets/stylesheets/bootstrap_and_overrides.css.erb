@@ -11,9 +11,16 @@
 .btn.btn-primary, .btn.btn-warning { margin-top: 5px; }
 .btn-primary:hover { background-color: #00D07D; border-color: transparent; }
 
+/* Footer Settings */
+body { height: 100%; padding-bottom: 60px; }
+footer .navbar-nav { padding: 5px 0 15px 0; }
+.navbar-fixed-bottom { background-color: #000; color: #777; font-weight: normal; }
+.navbar-fixed-bottom li { margin-left: 8%; }
+.navbar-fixed-bottom.nav > li > a { padding: 3px 0 0 0 !important; }
+.navbar-fixed-bottom.nav > li > a:hover { background: transparent !important; }
+
 /* Header Settings */
-.navbar { min-height: 80px; }
-.navbar-default { background-color: #000; border-bottom: 1px solid #333; margin-bottom: 0px; }
+.navbar-default { min-height: 80px; background-color: #000; border-bottom: 1px solid #333; margin-bottom: 0px; }
 .navbar-logo { max-height: 50px; }
 .navbar-nav { float: right; padding-top: 15px; font-size: 18px; }
 .navbar-nav a:hover { color: #D00053 !important; }
@@ -27,7 +34,8 @@
 }
 #home-bottom-banner p, #home-top-banner p { color: #fff; font-weight: 200; }
 #home-bottom-banner div, .home-middle div, #home-top-banner div { padding: 30px 10px; }
-.home-middle { min-height: 400px; margin-left: 8%; margin-right: 8%; }
+.home-middle { min-height: 300px; margin-left: 8%; margin-right: 8%; }
+.home-middle h3 { text-align: center; }
 .home-page-wrapper { width: 100%; margin-left: 0px !important; margin-right: 0px !important; }
 #home-top-banner { 
 	background: url(<%= asset_path 'la-skyscrapers-dark-bg.jpg' %>) no-repeat center center fixed; 
@@ -54,7 +62,7 @@ ul.job-search-results { padding: 8px 0 0 0; }
 /* Typography Settings */
 a:hover { color: #D00053; }
 .big-link { font-size: 16px; }
-body { font-family: 'Source Sans Pro', sans-serif; font-size: 14px; }
+body { font-family: 'Source Sans Pro', sans-serif; font-size: 14px; padding-bottom: 60px; }
 .complementary-header { color: #D00053; }
 h1, h2, h3, h4, h5, h6, label { font-family: 'Lato', 'Arial', sans-serif; }
 .job-listing-header, .section-header, .regular-header { color: #00D07D; }
