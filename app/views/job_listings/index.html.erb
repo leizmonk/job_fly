@@ -1,18 +1,34 @@
-<%= button_to 'Search for Job Listings', new_job_listing_path, method: 'get', class: 'btn btn-primary' %>
+<div class="container">
+	<div class="row">
+		<%= button_to 'Search for Job Listings', new_job_listing_path, method: 'get', class: 'btn btn-primary' %>
 
-<% if @job_listing.empty? %>
-	<%= flash.now[:notice] = "You don't have any saved jobs. Why not search for some?" %>
-<% end %>
+		<!-- Flash notice below if user has no saved jobs yet -->
+		<% if @job_listing.empty? %>
+			<%= flash.now[:notice] = "You don't have any saved jobs. Why not search for some?" %>
+		<% end %>
 
-<h3 class="section-header">Saved Jobs</h3>
-
-<ul class="job-listing-info">
-<% @job_listing.each do |listing| %>
-	<h4><%= listing.position_name %></h4>
-	<h5><%= listing.company_name %> - <%= listing.location %></h5>
-	<li>Date Posted: <%= listing.date_posted %></li>
-	<li>Date Closing: <%= listing.date_closing %></li>
-	<br />
-	<%= link_to 'View Listing', job_listing_path(listing.id) %> - <%= link_to "Delete", job_listing_path(listing.id), method: :delete, data: { confirm: "Are you sure you want to delete this listing?" } %>
-<% end %>
-</ul>
+		<h3 class="section-header">Saved Jobs</h3>	
+		
+		<div class="row">
+			<div class="job-listings">
+				<% @job_listing.each do |listing| %>
+					<table class="table">
+						<tr>
+							<td>
+								<h4><%= listing.position_name %></h4>
+								<h5><%= listing.company_name %> - <%= listing.location %></h5>
+							</td>
+							<td>
+								<p>Date Posted: <%= listing.date_posted %></p>
+								<p>Date Closing: <%= listing.date_closing %></p>
+							</td>
+							<td>
+								<%= link_to 'View Listing', job_listing_path(listing.id) %> - <%= link_to "Delete", job_listing_path(listing.id), method: :delete, data: { confirm: "Are you sure you want to delete this listing?" } %>
+							</td>
+						</tr>						
+					</table>				
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>

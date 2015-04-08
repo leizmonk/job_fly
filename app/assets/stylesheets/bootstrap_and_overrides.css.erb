@@ -13,22 +13,21 @@
 
 /* Header Settings */
 .navbar { min-height: 80px; }
-.navbar-default { background-color: #000; border-bottom: 1px solid #B1B1B1; }
+.navbar-default { background-color: #000; border-bottom: 1px solid #333; margin-bottom: 0px; }
 .navbar-logo { max-height: 50px; }
-.navbar-nav { float: right; padding-top: 12px; font-size: 18px; }
+.navbar-nav { float: right; padding-top: 15px; font-size: 18px; }
 .navbar-nav a:hover { color: #D00053 !important; }
 
 /* Home Page Settings */
 .row.home { font-size: 16px; }
 #home-bottom-banner { 
-	background: url(<%= asset_path 'office-dark-bg.jpg' %>) no-repeat center center fixed; 
+	background: url(<%= asset_path 'office-dark-bg.png' %>) no-repeat center center fixed; 
 	background-size: cover; 
 	min-height: 300px; 
-	width: 100%; 
 }
 #home-bottom-banner p, #home-top-banner p { color: #fff; font-weight: 200; }
 #home-bottom-banner div, .home-middle div, #home-top-banner div { padding: 30px 10px; }
-.home-middle { min-height: 400px; }
+.home-middle { min-height: 400px; margin-left: 8%; margin-right: 8%; }
 .home-page-wrapper { width: 100%; margin-left: 0px !important; margin-right: 0px !important; }
 #home-top-banner { 
 	background: url(<%= asset_path 'la-skyscrapers-dark-bg.jpg' %>) no-repeat center center fixed; 
@@ -37,27 +36,29 @@
 }
 
 /* Job Listing Page Settings */
-ul.job-listing-info { padding: 10px 0 0 0; }
-ul.job-listing-info li { list-style-type: none; padding-top: 10px; }
+div.job-listings { padding: 10px 0 0 0; }
+div.job-listings td { width: 33%; }
 ul.notes-list { padding: 3px 0 0 0; }
 
 /* Notes Settings */
+h3.regular-header { margin-top: 0px !important; }
 .new_note input, .new_note textarea { margin-top: 5px; min-width: 100%; }
-.notes-list p { line-height: 1em; }
+.edit-notes label { padding-top: 10px; font-weight: bold; }
+.edit-notes input, .edit-notes textarea, .edit-notes.btn-primary, .edit-notes.btn-warning { width: 50%; }
 
 /* Search Results Page */
 .job-search-results span { padding: 0 15px 0 15px; }
 .search-form label { padding-top: 10px; }
 ul.job-search-results { padding: 8px 0 0 0; }
-ul.job-listing-info { padding: 10px 0 0 0; }
 
 /* Typography Settings */
 a:hover { color: #D00053; }
-.complementary-header { color: #D00053; }
+.big-link { font-size: 16px; }
 body { font-family: 'Source Sans Pro', sans-serif; font-size: 14px; }
+.complementary-header { color: #D00053; }
+h1, h2, h3, h4, h5, h6, label { font-family: 'Lato', 'Arial', sans-serif; }
 .job-listing-header, .section-header, .regular-header { color: #00D07D; }
-h1, h2, h3, h4, h5, h6 { font-family: 'Lato', 'Arial', sans-serif; }
-label { font-weight: 400; }
+.notes-list p, .job-listings p { line-height: 1em; }
 
 /*@media screen and (min-width: 1201px) {
     .container-fluid {

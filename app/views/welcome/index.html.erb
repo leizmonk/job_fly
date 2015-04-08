@@ -1,62 +1,57 @@
-<div class="container-fluid">
-	<div class="row home" id="home-top-banner">
-		<div class="col-md-4">
-			<span id="home-top-vertical-spacer"></span>
-		</div>
-		<!-- This seciton will contain app name, logo and tagline -->
-		<div class="col-md-4">
-			<center>
-			<%= image_tag('jobfly-logo-txt.png') %>
-			<p>
-				JobFly is here to help you organize your next job search. Are you using paper or spreadsheets to keep track of all the activity on your job applications? JobFly aims to provide you with a GUI that will help you keep notes on job applications without you having to copy and paste information into a spreadsheet. You simply search for jobs, save them, then take whatever notes you'd like on your saved jobs.
-			</p>
-			<div class="col-md-6">
-				<%= link_to 'Sign Up', new_user_registration_path, class: 'btn btn-primary' %>
-			</div>
-			<div class="col-md-6">
-				<%= link_to 'Sign In', new_user_session_path, class: 'btn btn-warning' %>
-			</div>
-			</center>
-		</div>
-		<!-- This seciton will link to sign up/sign in -->
-		<div class="col-md-4">
-			<span></span>
-		</div>
+<div class="row home" id="home-top-banner">
+	<div class="col-md-4">
+		<span id="home-top-vertical-spacer"></span>
 	</div>
-	<!-- This seciton will contain more detailed info on the app (usage, FAQ?), white bg (or close) -->
-	<div class="row home home-middle">
+	<!-- This seciton will contain app name, logo and tagline -->
+	<div class="col-md-4">
+		<center>
+		<%= image_tag('jobfly-logo-txt.png') %>
+		<p>
+			JobFly is here to help you organize your next job search. Are you using paper or spreadsheets to keep track of all the activity on your job applications? JobFly aims to provide you with a GUI that will help you keep notes on job applications without you having to copy and paste information into a spreadsheet. You simply search for jobs, save them, then take whatever notes you'd like on your saved jobs.
+		</p>
 		<div class="col-md-6">
-			<p>
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit amet nulla iaculis nibh faucibus venenatis. Pellentesque auctor tellus est, non porttitor erat ultricies eu. Vivamus nec purus leo. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vestibulum cursus accumsan magna ut sollicitudin. Sed non lectus magna. In egestas sit amet orci id imperdiet. Aliquam sed luctus risus, id ultrices massa.
-			</p>
+			<%= link_to 'Sign Up', new_user_registration_path, class: 'btn btn-primary' %>
 		</div>
 		<div class="col-md-6">
-			<p>
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit amet nulla iaculis nibh faucibus venenatis. Pellentesque auctor tellus est, non porttitor erat ultricies eu. Vivamus nec purus leo. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vestibulum cursus accumsan magna ut sollicitudin. Sed non lectus magna. In egestas sit amet orci id imperdiet. Aliquam sed luctus risus, id ultrices massa.
-			</p>
+			<%= link_to 'Sign In', new_user_session_path, class: 'btn btn-warning' %>
 		</div>
+		</center>
 	</div>
-	<!-- This seciton will contain social and contact info, and another img bg (parallax) -->
-	<div class="row home" id="home-bottom-banner">
-	<!-- This four columns, but only the middle 2 have content, maybe a social share block, contact form? -->
-			<div class="col-md-3">
-				<span class="home-bottom-vertical-spacer"></span>
-			</div>
-			<!-- This seciton will link to sign up/sign in -->
-			<div class="col-md-3">
-				<p>
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit amet nulla iaculis nibh faucibus venenatis. Pellentesque auctor tellus est, non porttitor erat ultricies eu. Vivamus nec purus leo. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vestibulum cursus accumsan magna ut sollicitudin. Sed non lectus magna. In egestas sit amet orci id imperdiet. Aliquam sed luctus risus, id ultrices massa.
-				</p>
-			</div>
-			<div class="col-md-3">
-				<p>
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit amet nulla iaculis nibh faucibus venenatis. Pellentesque auctor tellus est, non porttitor erat ultricies eu. Vivamus nec purus leo. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vestibulum cursus accumsan magna ut sollicitudin. Sed non lectus magna. In egestas sit amet orci id imperdiet. Aliquam sed luctus risus, id ultrices massa.
-				</p>
-			</div>
-			<!-- This seciton will link to sign up/sign in -->
-			<div class="col-md-3">
-				<span class="home-bottom-vertical-spacer"></span>
-			</div>		
+	<!-- This seciton will link to sign up/sign in -->
+	<div class="col-md-4">
+		<span></span>
 	</div>
 </div>
-
+<!-- This seciton will contain more detailed info on the app (usage, FAQ?), white bg (or close) -->
+<div class="row home home-middle">
+	<div class="col-md-6">
+		<p>
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit amet nulla iaculis nibh faucibus venenatis. Pellentesque auctor tellus est, non porttitor erat ultricies eu. Vivamus nec purus leo. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vestibulum cursus accumsan magna ut sollicitudin. Sed non lectus magna. In egestas sit amet orci id imperdiet. Aliquam sed luctus risus, id ultrices massa.
+		</p>
+	</div>
+	<div class="col-md-6">
+		<p>
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit amet nulla iaculis nibh faucibus venenatis. Pellentesque auctor tellus est, non porttitor erat ultricies eu. Vivamus nec purus leo. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vestibulum cursus accumsan magna ut sollicitudin. Sed non lectus magna. In egestas sit amet orci id imperdiet. Aliquam sed luctus risus, id ultrices massa.
+		</p>
+	</div>
+</div>
+<!-- This seciton will contain social and contact info, and another img bg (parallax) -->
+<div class="row home" id="home-bottom-banner">
+<!-- This four columns, but only the middle 2 have content, maybe a social share block, contact form? -->
+		<div class="col-md-3">
+		</div>
+		<!-- This seciton will link to sign up/sign in -->
+		<div class="col-md-3">
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit amet nulla iaculis nibh faucibus venenatis. Pellentesque auctor tellus est, non porttitor erat ultricies eu. Vivamus nec purus leo. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vestibulum cursus accumsan magna ut sollicitudin. Sed non lectus magna. In egestas sit amet orci id imperdiet. Aliquam sed luctus risus, id ultrices massa.
+			</p>
+		</div>
+		<div class="col-md-3">
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit amet nulla iaculis nibh faucibus venenatis. Pellentesque auctor tellus est, non porttitor erat ultricies eu. Vivamus nec purus leo. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vestibulum cursus accumsan magna ut sollicitudin. Sed non lectus magna. In egestas sit amet orci id imperdiet. Aliquam sed luctus risus, id ultrices massa.
+			</p>
+		</div>
+		<!-- This seciton will link to sign up/sign in -->
+		<div class="col-md-3">
+		</div>		
+</div>

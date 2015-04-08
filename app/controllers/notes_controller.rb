@@ -21,10 +21,12 @@ class NotesController < ApplicationController
   end
 
   def edit
-    @note = Note.find(params[:id])    
+    @job_listing = JobListing.find(params[:id])
+    @note = Note.find(params[:id])
   end
 
   def update
+    @job_listing = JobListing.find(params[:id])
     @note = Note.find(params[:id])
 
     if @note.update_attributes(note_params)
