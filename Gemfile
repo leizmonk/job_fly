@@ -60,6 +60,9 @@ group :development, :test do
   # For ease of viewing errors
   gem 'better_errors'
   gem 'binding_of_caller'
+
+  # Use rspec rails for unit testing
+  gem 'rspec-rails', '~> 3.0'
 end
 
 gem 'rails_12factor', group: :production
