@@ -37,25 +37,4 @@
 			    <% end %>
 		</div>
 	</div>
-	<div class="row">
-		<div class="col-md-12">
-			<h3 class="section-header">Manually Add a New Job</h3>
-			<!-- This form takes user input and manually adds a new job listing -->
-			<div class="create-form">
-				<%= form_tag('/job_listings/new', method: 'get') do %>
-					<%= label_tag(:q, 'Search for:') %><br />
-					<%= text_field_tag :q %><br />
-					<%= label_tag(:l, 'Specify location:') %><br />
-					<%= text_field_tag :l %><br />
-					<%= label_tag(:radius, 'Specify search radius around location:') %><br />
-					<%= text_field_tag :radius %><br />
-					<%= label_tag(:jt, 'Specify job type (i.e. fulltime, parttime, contract, internship):') %><br />
-					<%= text_field_tag :jt %><br />
-					<%= label_tag(:fromage, 'Specify how far back in time to search:') %><br />
-					<%= text_field_tag :fromage %><br />
-					<%= submit_tag 'Search', class: 'btn btn-primary' %>
-				<% end %>
-			</div>	
-		</div>
-	</div>
 </div>
