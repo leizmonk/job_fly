@@ -63,6 +63,17 @@ group :development, :test do
 
   # Use rspec rails for unit testing
   gem 'rspec-rails', '~> 3.0'
+
+  # Use Factory instead of fixtures
+  gem 'factory_girl_rails'  
+end
+
+group :test do 
+  # Use to simulate user behavior
+  gem 'capybara'
+
+  #Use guard to auto-run tests
+  gem "guard-rspec"
 end
 
 gem 'rails_12factor', group: :production
