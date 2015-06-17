@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe WelcomeController, type: :controller do
+RSpec.describe WelcomeController, :type => :controller do
   # Testing welcome controller index page
   describe "GET #index" do
     # Index page responds with HTTP 200 if running

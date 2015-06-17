@@ -9,8 +9,8 @@ RSpec.describe "UserSignups", type: :request do
     expect(response).to have_http_status(200)
   end
 
-  it "allows a user to sign up via the devise registartion/new page" do
-    user = Factory(:user)
+  it "allows a user to sign up via the devise registration/new page" do
+    user = FactoryGirl(:user)
     visit new_user_registration_path
     fill_in "Email", :with => user.email
     fill_in "Password", :with => user.password
