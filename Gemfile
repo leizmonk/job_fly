@@ -65,7 +65,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.0'
 
   # Use Factory instead of fixtures
-  gem 'factory_girl_rails'  
+  gem 'factory_girl_rails', '~> 4.0'
 end
 
 group :test do 
@@ -74,6 +74,9 @@ group :test do
 
   #Use guard to auto-run tests
   gem "guard-rspec"
+
+  # Use Factory instead of fixtures
+  gem 'factory_girl_rails', '~> 4.0'  
 end
 
 gem 'rails_12factor', group: :production

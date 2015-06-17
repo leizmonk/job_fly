@@ -1,4 +1,6 @@
 require 'rails_helper'
+require 'factory_girl_rails'
+require 'capybara'
 
 RSpec.describe "UserSignups", type: :request do
   it "responds sucessfully with an HTTP 200 status code" do
@@ -13,5 +15,6 @@ RSpec.describe "UserSignups", type: :request do
     fill_in "Email", :with => user.email
     fill_in "Password", :with => user.password
     fill_in "Password confirmation", :with => user.password_confirmation
+    click_button "Sign Up"
   end
 end
