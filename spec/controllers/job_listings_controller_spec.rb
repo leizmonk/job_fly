@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe JobListingsController, :type => :controller do
+RSpec.describe JobListingsController, type: :controller do
   # Testing index page actions
   describe "GET #index" do
     # Index page responds with HTTP 200 if running
