@@ -51,32 +51,32 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 
-  # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console', '~> 2.0'
-
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
-
   # For ease of viewing errors
   gem 'better_errors'
   gem 'binding_of_caller'
 
+  # Use Factory instead of fixtures
+  gem 'factory_girl_rails', '~> 4.0'
+
+  # Use guard to auto-run tests
+  gem "guard-rspec"
+
+  # Use guard-livereload to reload changed pages without refresh 
+  gem "guard-livereload"
+
   # Use rspec rails for unit testing
   gem 'rspec-rails', '~> 3.0'
 
-  # Use Factory instead of fixtures
-  gem 'factory_girl_rails', '~> 4.0'
+  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  gem 'spring'
+
+  # Access an IRB console on exception pages or by using <%= console %> in views
+  gem 'web-console', '~> 2.0'  
 end
 
 group :test do 
   # Use to simulate user behavior
   gem 'capybara'
-
-  #Use guard to auto-run tests
-  gem "guard-rspec"
-
-  # Use Factory instead of fixtures
-  gem 'factory_girl_rails', '~> 4.0'  
 end
 
 gem 'rails_12factor', group: :production
